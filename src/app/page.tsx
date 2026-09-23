@@ -9,6 +9,8 @@ import Technology from "./components/Technology";
 import Solution from "./components/Solution";
 import CommandMap from "./components/CommandMap";
 import SectionHeading from "./components/SectionHeading";
+import Cooperation from "./components/Cooperation";
+import Impact from "./components/Impact";
 
 const NAV = [
   { id: "casen", label: "Casen" },
@@ -98,6 +100,9 @@ export default function Page() {
             </div>
           </div>
         </section>
+
+        <Cooperation />
+        <Impact />
       </main>
       <footer className="border-t border-slate-200 py-10">
         <div className="mx-auto max-w-6xl px-4 text-sm text-slate-500">
