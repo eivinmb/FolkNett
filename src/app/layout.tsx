@@ -6,8 +6,9 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FolkNett",
-  description: "Konseptside for nasjonal fiberberedskap",
+  title: "Bakken som lytter",
+  description:
+    "Når et kvikkleireskred går, gjør vi fiberkablene under gatene om til kartet og ørene redningsmannskapene mangler. Besvarelse i Your Extreme 2026.",
 };
 
 export default function RootLayout({

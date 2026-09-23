@@ -127,3 +127,58 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+/* Bakken som lytter: felles oppsett for siden og animasjonene */
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Lyspulser som går gjennom fiberen */
+@keyframes fiber-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.fiber-flow {
+  stroke-dasharray: 2 18;
+  animation: fiber-flow 1.4s linear infinite;
+}
+
+/* Målepunkter som lytter */
+@keyframes listen-twinkle {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.listen-dot {
+  animation: listen-twinkle 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fiber-flow,
+  .listen-dot {
+    animation: none;
+  }
+}
