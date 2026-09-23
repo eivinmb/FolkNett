@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Hero from "./components/Hero";
 import CaseSummary from "./components/CaseSummary";
+import Scenario from "./components/Scenario";
+import Problem from "./components/Problem";
 
 const NAV = [
   { id: "casen", label: "Casen" },
@@ -74,6 +76,8 @@ export default function Page() {
       <main>
         <Hero />
         <CaseSummary />
+        <Scenario />
+        <Problem />
       </main>
       <footer className="border-t border-slate-200 py-10">
         <div className="mx-auto max-w-6xl px-4 text-sm text-slate-500">
