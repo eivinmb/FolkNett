@@ -13,6 +13,8 @@ import Cooperation from "./components/Cooperation";
 import Impact from "./components/Impact";
 import Feasibility from "./components/Feasibility";
 import Scale from "./components/Scale";
+import AboutUs from "./components/AboutUs";
+import Sources from "./components/Source";
 
 const NAV = [
   { id: "casen", label: "Casen" },
@@ -107,6 +109,33 @@ export default function Page() {
         <Impact />
         <Feasibility />
         <Scale />
+
+        <section id="team" className="bg-slate-50 py-24">
+          <div className="mx-auto max-w-6xl px-4">
+            <SectionHeading
+              kicker="Teamet"
+              title="Dream Bernoulli"
+              lead="Fem studenter ved NTNU med ulik faglig bakgrunn: marin teknikk, marin kybernetikk, maskin, industriell økonomi og organisasjon."
+            />
+            <AboutUs />
+          </div>
+        </section>
+
+        <Sources />
+
+        <section className="bg-white pb-20">
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-700">
+              <p className="font-semibold text-slate-900">Bruk av KI</p>
+              <p className="mt-2">
+                Vi har brukt KI (Claude fra Anthropic) til research, sparring, renskriving og koding av denne siden.
+                Vrien om å bruke fiberen i selve redningsaksjonen kom fram i sparring med KI, etter at vi hadde valgt
+                fiber som teknologi og skred som case. Vurderingene og valgene er våre. Hele loggen ligger i
+                KI_LOGG.md i prosjektet.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
       <footer className="border-t border-slate-200 py-10">
         <div className="mx-auto max-w-6xl px-4 text-sm text-slate-500">
