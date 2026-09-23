@@ -6,6 +6,9 @@ import CaseSummary from "./components/CaseSummary";
 import Scenario from "./components/Scenario";
 import Problem from "./components/Problem";
 import Technology from "./components/Technology";
+import Solution from "./components/Solution";
+import CommandMap from "./components/CommandMap";
+import SectionHeading from "./components/SectionHeading";
 
 const NAV = [
   { id: "casen", label: "Casen" },
@@ -80,6 +83,21 @@ export default function Page() {
         <Scenario />
         <Problem />
         <Technology />
+        <Solution />
+
+        <section id="prototype" className="bg-slate-950 py-24">
+          <div className="mx-auto max-w-6xl px-4">
+            <SectionHeading
+              dark
+              kicker="Prototype"
+              title="Innsatsleders kart"
+              lead="Slik kan det se ut på nettbrettet til innsatsleder. Kartet spiller av natten og ukene etter skredet. Bla gjerne selv med knappene. Elvelia er oppdiktet, men hendelsene bygger på lærdommene fra Gjerdrum."
+            />
+            <div className="mt-10">
+              <CommandMap />
+            </div>
+          </div>
+        </section>
       </main>
       <footer className="border-t border-slate-200 py-10">
         <div className="mx-auto max-w-6xl px-4 text-sm text-slate-500">
