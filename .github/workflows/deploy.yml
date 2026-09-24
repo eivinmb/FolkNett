@@ -1,0 +1,73 @@
+name: Deploy to VPS
+
+# Every branch is deployed as its own static site on the VPS, on its own
+# port: http://<VPS_HOST>:<port>/ (main is always port 8100). The port for
+# each branch is printed in the job summary. Deleting a branch takes its
+# site down.
+#
+# Note: GitHub runs a push workflow from the pushed branch's own copy of
+# this file, so every branch needs it (new branches from main get it).
+
+on:
+  push:
+    branches: ["**"]
+  delete:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.event_name == 'delete' && github.event.ref || github.ref_name }}
+  cancel-in-progress: true
+
+env:
+  SSH_TARGET: folknett@${{ secrets.VPS_HOST }}
+
+jobs:
+  deploy:
+    if: github.event_name != 'delete'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Branch slug
+        run: |
+          slug=$(echo "$GITHUB_REF_NAME" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+|-+$//g' | cut -c1-63)
+          echo "SLUG=$slug" >> "$GITHUB_ENV"
+
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build
+
+      - name: Set up SSH
+        run: |
+          install -d -m 700 ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          echo "${{ secrets.VPS_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+
+      - name: Upload and activate
+        run: |
+          port=$(ssh "$SSH_TARGET" "sudo /usr/local/sbin/folknett-site add $SLUG")
+          dir=/var/www/folknett/$SLUG
+          ssh "$SSH_TARGET" "mkdir -p $dir/releases"
+          rsync -az --delete --link-dest="$dir/current/" out/ "$SSH_TARGET:$dir/releases/$GITHUB_SHA/"
+          ssh "$SSH_TARGET" "ln -sfn $dir/releases/$GITHUB_SHA $dir/current.tmp && mv -T $dir/current.tmp $dir/current \
+            && cd $dir/releases && ls -1t | tail -n +4 | xargs -r rm -rf"
+          url="http://${{ secrets.VPS_HOST }}:$port/"
+          echo "Deployed \`$GITHUB_REF_NAME\` to $url" | tee -a "$GITHUB_STEP_SUMMARY"
+
+  teardown:
+    if: github.event_name == 'delete' && github.event.ref_type == 'branch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove site
+        run: |
+          install -d -m 700 ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          echo "${{ secrets.VPS_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          slug=$(echo "${{ github.event.ref }}" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+|-+$//g' | cut -c1-63)
+          ssh "$SSH_TARGET" "sudo /usr/local/sbin/folknett-site remove $slug"
