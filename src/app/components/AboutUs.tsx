@@ -1,84 +1,37 @@
-"use client";
-
-import React from "react";
+import { User } from "lucide-react";
 
 type TeamMember = {
   name: string;
-  year: string;
-  img: string;
-  study: string;
+  year?: string;
+  img?: string;
+  study?: string;
 };
 
 const team: TeamMember[] = [
-  { 
-    name: "Eivin Burmester",
-    year: "4. Klasse",
-    img: "/team/eivin.png",
-    study: "Marin Kybernetikk" 
-  },
-  { 
-    name: "Eirik Hekkli",
-    year: "3. Klasse",
-    img: "/team/eirik.png",
-    study: "Marin Teknikk" 
-  },
-  { 
-    name: "Camilla Gloppen",
-    year: "5. Klasse",
-    img: "/team/camilla.png",
-    study: "Organisasjon, Digitalisering, Administrasjon og Arbeid" 
-  },
-  { 
-    name: "Henrik Sehm-Hansen",
-    year: "3. Klasse",
-    img: "/team/henrik.png",
-    study: "Industriell Økonomi og Teknologiledelse" 
-  },
-  { 
-    name: "Syver Strand",
-    year: "2. Klasse",
-    img: "/team/syver.png",
-    study: "Maskiningeniør" 
-  },
+  { name: "Eivin Burmester", year: "5. klasse", img: "/team/eivin.png", study: "Marin kybernetikk" },
+  { name: "Eirik Hekkli", year: "4. klasse", img: "/team/eirik.png", study: "Marin kybernetikk" },
+  { name: "Isak Halse Kjerstad" }, // klasse, linje og bilde kommer
+  { name: "Henrik Sehm-Hansen", year: "4. klasse", img: "/team/henrik.png", study: "Industriell økonomi og teknologiledelse" },
+  { name: "Syver Strand", year: "3. klasse", img: "/team/syver.png", study: "Maskiningeniør" },
 ];
-
-type CardProps = {
-  m: TeamMember;
-};
-
-function Card({ m }: CardProps) {
-  return (
-    <div className="about-card relative !static bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center w-56 shrink-0">
-      <img
-        src={m.img}
-        alt={m.name}
-        className="!w-32 !h-32 !rounded-full !object-cover !mb-4 !block"
-      />
-      <h2 className="text-lg font-semibold">{m.name}</h2>
-      <p className="text-sm text-slate-500">{m.year}</p>
-      <p className="mt-2 text-sm">{m.study}</p>
-    </div>
-  );
-}
 
 export default function AboutUs() {
   return (
-    <section className="about-wrapper isolate mx-auto max-w-6xl px-1 py-12">
-      {/* Mobil/Tablet: horisontal scroller */}
-      <div className="lg:hidden overflow-x-auto no-scrollbar">
-        <div className="flex flex-nowrap items-stretch gap-1 pr-4">
-          {team.map((m, i) => (
-            <Card key={i} m={m} />
-          ))}
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+      {team.map((m) => (
+        <div key={m.name} className="rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm">
+          {m.img ? (
+            <img src={m.img} alt={m.name} className="mx-auto h-24 w-24 rounded-full object-cover ring-4 ring-slate-100" />
+          ) : (
+            <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-slate-100 text-slate-300 ring-4 ring-slate-100">
+              <User className="h-10 w-10" />
+            </div>
+          )}
+          <h3 className="mt-4 font-semibold text-slate-900">{m.name}</h3>
+          {m.year && <p className="text-sm text-slate-500">{m.year}</p>}
+          {m.study && <p className="mt-2 text-sm text-slate-600">{m.study}</p>}
         </div>
-      </div>
-
-      {/* Desktop: grid med 5 kolonner */}
-      <div className="hidden lg:grid lg:grid-cols-5 lg:gap-8">
-        {team.map((m, i) => (
-          <Card key={i} m={m} />
-        ))}
-      </div>
-    </section>
+      ))}
+    </div>
   );
 }

@@ -1,78 +1,66 @@
-"use client";
-
 import React from "react";
-import { Lightbulb } from "lucide-react";
+import Ref from "./Ref";
 
-export default function Solution({
-  imageSrc = "litenting.png",
-  imageAlt = "Illustrasjon av fiberbasert løsning",
-}: {
-  imageSrc?: string;
-  imageAlt?: string;
-}) {
+const FLOW = [
+  { n: "1", title: "Atomklokker", body: "Justervesenet har Norges offisielle tid." },
+  { n: "2", title: "Fiberklokka", body: "Tida sendes gjennom fiber og er ikke avhengig av satellitter." },
+  { n: "3", title: "Målepunkter", body: "Master og bygg sammenligner GPS-tid med fibertid hvert minutt." },
+  { n: "4", title: "Tillitskart", body: "Hvert område blir grønt, gult eller rødt." },
+];
+
+const STATUS = [
+  { color: "bg-emerald-500", label: "Grønn", text: "Avviket er under 100 nanosekunder. GPS kan brukes som vanlig." },
+  { color: "bg-amber-500", label: "Gul", text: "Noe er usikkert, så systemene bruker fiberklokka som fasit." },
+  { color: "bg-rose-500", label: "Rød", text: "Avviket er over ett mikrosekund, eller signalet er borte. Systemene bytter til fibertid, og nødetatene får beskjed." },
+];
+
+export default function Solution() {
   return (
-    <section
-      id="solution"
-      className="relative mx-auto w-full max-w-6xl px-4 py-0"
-    >
-      {/* Background accent */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white to-slate-50"
-      />
-
-      <div className="grid items-start gap-10 md:grid-cols-2">
-        {/* Venstre kolonne: tekst */}
-        <div className="space-y-6 text-slate-700">
-          <div className="flex items-center gap-3">
-            <Lightbulb className="h-7 w-7 text-yellow-600" />
-            <h3 className="text-2xl font-bold">... men vi er forberedt</h3>
-          </div>
-
+    <div className="space-y-12">
+      <div className="grid gap-12 lg:grid-cols-2">
+        <div className="space-y-5 text-lg leading-relaxed text-slate-600">
           <p>
-            Vi mener at løsningen ligger rett under oss – i bakken. Norge er
-            allerede dekket av kilometer på kilometer med fiberkabler, en
-            infrastruktur som til daglig brukes til internett og TV. Men den
-            samme fiberen kan også bli vår redning i en ekstrem krisesituasjon.
+            <span className="font-semibold text-slate-900">Den første jobben er å være Norges klokke.</span> Tid fra
+            Justervesenets atomklokker sendes gjennom fibernettet, slik Sverige allerede gjør <Ref n={6} />. Nkom og
+            Justervesenet utreder det samme for Norge nå <Ref n={4} />
+            <Ref n={5} />, så vi er ikke alene om å tenke i denne retningen.
           </p>
-
           <p>
-            Ved å koble enkle, batteridrevne enheter i hjemmene direkte til
-            fibernettet, kan befolkningen både motta kritisk informasjon og
-            sende nødsignaler selv når strøm, mobilnett og internett er
-            utilgjengelig. Enhetene oversetter lyssignaler i fiberkablene til
-            tekstmeldinger, krever minimalt med strøm og kan derfor drives på
-            batteri i lang tid.
+            <span className="font-semibold text-slate-900">Den andre jobben er den vi har brukt mest tid på:</span> å bruke
+            fibertida til å sjekke GPS. Mobilmaster, trafostasjoner, DAB-sendere og kaianlegg som har både GPS og fiber, blir
+            målepunkter. Hvert minutt sammenligner de de to klokkene. Er det avvik, er GPS forstyrret eller forfalsket
+            akkurat der.
           </p>
-
           <p>
-            Dette gjør det mulig å etablere toveis kommunikasjon gjennom et
-            lavteknologisk og menneskedrevet beredskapssystem – bygget på en
-            infrastruktur som allerede finnes.
+            Det vi liker best med løsningen, er at et falskt GPS-signal kan se helt normalt ut, mens tida likevel avslører
+            det. Fiberklokka ligger i bakken og kan ikke forfalskes fra lufta.
           </p>
         </div>
 
-        {/* Høyre kolonne: bilde */}
-        <figure className="mx-auto w-full max-w-md">
-          {imageSrc ? (
-            <img
-              src={imageSrc}
-              alt={imageAlt}
-              width={1024}
-              height={1024}
-              className="w-full aspect-square rounded-2xl object-cover shadow-sm ring-1 ring-slate-900/10"
-              loading="lazy"
-            />
-          ) : (
-            <div className="flex aspect-square w-full items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-white text-sm text-slate-500">
-              BILDE 1024×1024
+        <div className="space-y-3">
+          {STATUS.map((s) => (
+            <div key={s.label} className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <span className={`mt-1 h-4 w-4 shrink-0 rounded-full ${s.color}`} />
+              <div>
+                <div className="font-semibold text-slate-900">{s.label}</div>
+                <div className="text-slate-600">{s.text}</div>
+              </div>
             </div>
-          )}
-          <figcaption className="mt-2 text-center text-xs text-slate-500">
-            Ideskisse av en tenkt enhet som kobles til fiberkabelen i hjemmet.
-          </figcaption>
-        </figure>
+          ))}
         </div>
-    </section>
+      </div>
+
+      <ol className="grid gap-4 md:grid-cols-4">
+        {FLOW.map((f) => (
+          <li key={f.n} className="relative rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-semibold text-white">
+              {f.n}
+            </div>
+            <div className="mt-3 font-semibold text-slate-900">{f.title}</div>
+            <div className="mt-1 text-sm text-slate-600">{f.body}</div>
+          </li>
+        ))}
+      </ol>
+    </div>
   );
 }

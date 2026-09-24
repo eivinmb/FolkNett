@@ -1,91 +1,48 @@
-import React from "react";
+import Ref from "./Ref";
 
-// Bærekraft / Sustainability section
-// Drop this file into your components folder and import <Sustainability /> where needed.
-// Place the SDG icons under /public/sdg/ as goal3.png, goal9.png, goal11.png, goal16.png (or adjust paths below).
-
-type Item = {
-  id: number;
-  sdg: number;
-  title: string;
-  body: string;
-  image: string;
-};
-
-const items: Item[] = [
+const items = [
   {
-    id: 1,
     sdg: 3,
-    title: "GOD HELSE OG LIVSKVALITET",
-    body:
-      "Løsningen sikrer at befolkningen kan varsle nødetater og få hjelp raskt selv under kriser, noe som redder liv. KI-basert prioritering gjør at de mest sårbare får hjelp først, og dedikerte kommunikasjonskanaler sørger for rask respons ved medisinske nødstilfeller. [1]"  ,
+    title: "God helse og livskvalitet",
+    body: "Når operatørene vet hvor GPS kan være feil, blir ambulansene og luftambulansen sendt riktig vei.",
     image: "/sdg/goal3.png",
+    ref: 20,
   },
   {
-    id: 2,
     sdg: 9,
-    title: "INDUSTRI, INNOVASJON OG INFRASTRUKTUR",
-    body:
-      "Løsningen utnytter eksisterende fiberinfrastruktur på nye måter, og kombinerer den med KI og lavteknologiske løsninger. Ved å bygge videre på robust fiberdekning og innføre batteridrevne enheter, skapes det en innovativ og bærekraftig kommunikasjonsløsning.[2]",
+    title: "Industri, innovasjon og infrastruktur",
+    body: "Vi bygger ikke noe nytt, men gir fibernett og GPS-mottakere som allerede finnes, en ny oppgave.",
     image: "/sdg/goal9.png",
+    ref: 21,
   },
   {
-    id: 3,
     sdg: 11,
-    title: "BÆREKRAFTIGE LOKALSAMFUNN",
-    body:
-      "Krisetid krever samarbeid mellom innbyggere, myndigheter og nødetater. FolkNett gir lokalsamfunn verktøy for å dele og motta informasjon, og husholdninger kan sende nødsignaler selv uten strøm eller moderne nettverk.[3]",
+    title: "Bærekraftige byer og lokalsamfunn",
+    body: "Mobilnett, strømnett og radio kan holde seg i gang lokalt selv om satellittene svikter.",
     image: "/sdg/goal11.png",
+    ref: 22,
   },
   {
-    id: 4,
     sdg: 16,
-    title: "FRED, RETTFERDIGHET OG VELFUNGERENDE INSTITUSJONER",
-    body:
-      "Tillit og stabilhet i samfunnet styrkes når folk vet at kommunikasjonen ikke streiker, selv ved en krise. [4]",
+    title: "Velfungerende institusjoner",
+    body: "Når alle etatene ser det samme kartet, blir det lettere å ta gode beslutninger og å stole på hverandre i en krise.",
     image: "/sdg/goal16.png",
+    ref: 23,
   },
 ];
 
 export default function Sustainability() {
   return (
-    <section id="sustainability" className="mx-auto max-w-6xl px-4 py-0">
-
-      <div className="space-y-6">
-        {items.map((item, idx) => (
-          <article
-            key={item.id}
-            className="rounded-2xl border bg-white/70 backdrop-blur p-6 md:p-8 shadow-sm"
-          >
-            {/* Stable layout using grid so image always sits neatly to the right */}
-            <div
-              className={`grid items-center md:items-start gap-6 md:gap-8 md:grid-cols-12 ${
-                idx % 2 === 0 ? "" : "md:[direction:rtl] md:text-left"
-              }`}
-            >
-              {/* Text */}
-              <div className="md:col-span-10 [direction:ltr] pr-2">
-                <h3 className="text-xl md:text-2xl font-semibold tracking-tight">
-                  {item.title}
-                </h3>
-                <p className="mt-3 leading-relaxed text-slate-700 ">{item.body}</p>
-              </div>
-
-              {/* SDG Image */}
-              <div className="md:col-span-2 [direction:ltr] justify-self-end">
-                <figure className="flex items-center md:justify-end">
-                  <img
-                    src={item.image}
-                    alt={`FN bærekraftsmål ${item.sdg}`}
-                    className="w-28 h-28 md:w-36 md:h-36 object-contain rounded-xl border"
-                    loading="lazy"
-                  />
-                </figure>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {items.map((item) => (
+        <article key={item.sdg} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <img src={item.image} alt={`FNs bærekraftsmål ${item.sdg}`} className="h-16 w-16 rounded-lg" loading="lazy" />
+          <h3 className="mt-4 font-semibold text-slate-900">{item.title}</h3>
+          <p className="mt-1 text-sm leading-relaxed text-slate-600">
+            {item.body} <Ref n={item.ref} />
+          </p>
+        </article>
+      ))}
+    </div>
   );
 }

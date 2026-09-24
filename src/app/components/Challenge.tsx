@@ -1,77 +1,118 @@
 import React from "react";
-import { TrendingDown } from "lucide-react";
+import { RadioTower, Zap, Landmark } from "lucide-react";
+import Ref from "./Ref";
 
-export default function Challenge({
-  imageSrc = "ambulanse.png",
-  imageAlt = "Illustrasjon av beredskap/kommunikasjon i krise",
-}: {
-  imageSrc?: string
-  imageAlt?: string
-}) {
+const TIMELINE: { when: string; what: React.ReactNode }[] = [
+  { when: "Kl. 10:00", what: "Et kraftig utbrudd på sola." },
+  {
+    when: "+ 8 minutter",
+    what: (
+      <>
+        Radiostøy fra sola overdøver GPS-signalene på hele dagsiden av jorda. Det skjedde i mindre skala i 2006 <Ref n={10} />.
+      </>
+    ),
+  },
+  { when: "Samme dag", what: "Partikkelstormen treffer satellittene, og mange går i nødmodus eller blir skadet." },
+  {
+    when: "+ 1–2 døgn",
+    what: (
+      <>
+        Magnetstormen bremser satellittene i lav bane. En moderat storm i 2022 kostet Starlink 38 av 49 nye satellitter{" "}
+        <Ref n={11} />, og i mai 2024 måtte omtrent halvparten av satellittene i lav bane flytte seg samtidig <Ref n={12} />.
+      </>
+    ),
+  },
+  {
+    when: "+ 2–3 døgn",
+    what: (
+      <>
+        Når satellittene ikke lenger klarer å styre unna hverandre, regner forskere med at det første store sammenstøtet i lav bane kommer i løpet av to–tre døgn{" "}
+        <Ref n={13} />.
+      </>
+    ),
+  },
+  { when: "Uker og måneder", what: "Navigasjonssatellittene som overlevde, er ustabile. Nye tar flere år å bygge." },
+];
+
+const CONSEQUENCES = [
+  {
+    icon: <RadioTower className="h-5 w-5" />,
+    title: "Mobilnettet",
+    body: "Mastene kommer ut av takt og forstyrrer hverandre, og mobilen slutter å virke. Det gjør også Nødvarsel.",
+  },
+  {
+    icon: <Zap className="h-5 w-5" />,
+    title: "Strømnettet",
+    body: "Driftssentralene mister kontakten med sensorene de bruker for å holde balansen i strømnettet.",
+  },
+  {
+    icon: <Landmark className="h-5 w-5" />,
+    title: "Bankene",
+    body: "Går klokka til en bank feil i forhold til Norges Bank, blir banken stengt ute fra handel og oppgjør.",
+  },
+];
+
+export default function Challenge() {
   return (
-    <section id="challenge" className="relative mx-auto w-full max-w-6xl px-4 py-0">
-      {/* Background accent */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-slate-50 to-white"
-      />
-      <div className="flex items-center gap-3">
-            <TrendingDown className="h-7 w-7 text-yellow-600" />
-            <h3 className="text-2xl font-bold">Når alt går ned ...</h3>
-          </div>
-      <div className="grid items-start gap-10 md:grid-cols-2 px-6 pt-6">
-        {/* Left column: text */}
-        
-        <div className="space-y-6 text-slate-700">
+    <div className="space-y-16">
+      <div className="grid gap-12 lg:grid-cols-2">
+        <div className="space-y-5 text-lg leading-relaxed text-slate-600">
           <p>
-        Forestill deg at hele Skandinavia mister strøm, internett, mobilnett og GPS i sju døgn. 
-        Uten digitale kanaler lammes både myndighetene og innbyggerne, og samfunnet mister 
-        evnen til å koordinere og reagere. Dette reiser to avgjørende spørsmål:
+            Vi har valgt en solstorm som krise. Tenk deg en helt vanlig tirsdag i februar der et kraftig utbrudd på sola
+            treffer jorda. Det høres kanskje ut som science fiction, men det har skjedd før. I år 774 kom et utbrudd som var
+            langt kraftigere enn noe vi har målt siden, og sporene kan fortsatt leses i årringene til gamle trær <Ref n={16} />. Sola er dessuten nettopp forbi toppen av sin
+            elleveårige syklus <Ref n={17} />.
           </p>
-
-          <p className="font-semibold text-slate-900">
-            Hvordan kan befolkningen kontakte nødetater når livstruende hendelser inntreffer og
-            tradisjonelle kanaler svikter?
-          </p>
-
           <p>
-            I et scenario der strøm, internett, mobilnett og GPS-systemer ikke fungerer, blir det
-            avgjørende å ha systemer som gjør det mulig for innbyggerne å sende nødsignaler og
-            motta hjelp raskt. Samtidig må nødetatene kunne prioritere og organisere innsatsen slik
-            at de med størst behov får hjelp først, selv under kaotiske forhold.
+            Det som overrasket oss mest, var at det ikke hjelper å ha flere satellittsystemer. GPS, Galileo, GLONASS og
+            BeiDou går i bane i det samme rommet, så en solstorm treffer alle på én gang. Og Norge får det verst, fordi
+            forstyrrelsene er kraftigst langt nord.
           </p>
+          <p>
+            Hvert steg i tidslinjen har skjedd før, bare i mindre skala. I Øst-Finnmark trenger man ikke engang en solstorm.
+            Der forsvinner GPS nesten hver dag på grunn av jamming <Ref n={8} />
+            <Ref n={9} />.
+          </p>
+          <blockquote className="border-l-4 border-blue-600 pl-5 text-xl font-medium text-slate-900">
+            Spørsmålet vi satt igjen med, var hvordan vi kan vite hvor GPS fortsatt er til å stole på, og holde viktige
+            systemer i gang der den ikke er det.
+          </blockquote>
         </div>
 
-        {/* Right column: image */}
-        <figure className="mx-auto w-full max-w-xl">
-          {imageSrc ? (
-            // Use a plain <img> to avoid Next.js-specific requirements.
-            <img
-              src={imageSrc}
-              alt={imageAlt}
-              className="p-3 aspect-video w-full items-center rounded-2xl object-cover shadow-sm ring-1 ring-slate-900/10"
-              loading="lazy"
-            />
-          ) : (
-            // Placeholder when no image provided
-            <div className="flex aspect-video w-full items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-white text-sm text-slate-500">
-              BILDE
-            </div>
-          )}
-        </figure>
+        <ol className="relative space-y-6 border-l-2 border-slate-200 pl-8">
+          {TIMELINE.map((t) => (
+            <li key={t.when} className="relative">
+              <span className="absolute -left-[2.45rem] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-blue-600 ring-2 ring-blue-100" />
+              <div className="text-sm font-semibold uppercase tracking-wide text-blue-600">{t.when}</div>
+              <div className="mt-1 text-slate-700">{t.what}</div>
+            </li>
+          ))}
+        </ol>
       </div>
 
-      <div className="mt-10 space-y-6 text-slate-700 px-6">
-        <p className="font-semibold text-slate-900">
-          Hvordan kan regjeringen formidle kritisk informasjon til befolkningen når alle digitale
-          kanaler er ute av drift?
+      <div>
+        <h3 className="text-2xl font-semibold tracking-tight text-slate-900">Det er klokka som svikter først</h3>
+        <p className="mt-3 max-w-3xl text-lg leading-relaxed text-slate-600">
+          Før vi startet, trodde vi GPS mest handlet om kart og veibeskrivelser. Men mange av de viktigste systemene våre
+          bruker GPS som klokke. DSB har selv analysert hva som skjer når den klokka går feil <Ref n={1} />.
         </p>
-        <p>
-          For å opprettholde trygghet og koordinering i samfunnet, er det nødvendig å utvikle
-          løsninger som kan fungere uten strøm, mobilnett og internett, og som sikrer at alle får
-          relevant og korrekt informasjon når det virkelig gjelder.
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {CONSEQUENCES.map((c) => (
+            <div key={c.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="flex items-center gap-2 text-rose-600">
+                {c.icon}
+                <span className="font-semibold text-slate-900">{c.title}</span>
+              </div>
+              <p className="mt-2 text-slate-600">{c.body}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 max-w-3xl leading-relaxed text-slate-600">
+          Nødetatene er mest utsatt, og FFI vurderer sårbarheten deres som «middels til høy» <Ref n={2} />. Menon Economics har
+          regnet ut at en uke uten satellittnavigasjon vil koste Norge rundt 3,4 milliarder kroner <Ref n={3} />. Det som
+          bekymrer oss mest, er likevel ikke at GPS forsvinner. Det er når den gir feil svar uten at noen merker det.
         </p>
       </div>
-    </section>
-  )
+    </div>
+  );
 }

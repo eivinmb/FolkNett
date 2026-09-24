@@ -1,36 +1,40 @@
-"use client";
+import { Eye, Layers, ShieldCheck, Scale } from "lucide-react";
 
-import React from "react";
+const PRINCIPLES = [
+  {
+    icon: <Eye className="h-5 w-5" />,
+    title: "Ingen persondata",
+    body: "Kartet sier noe om hvor GPS kan stoles på, aldri om hvem som er der. Vi samler ikke inn noe fra mobiler eller biler.",
+  },
+  {
+    icon: <Layers className="h-5 w-5" />,
+    title: "To nivåer av tilgang",
+    body: "Et detaljert kart kan vise hvor infrastrukturen er sårbar. Vi mener nødetatene og de som eier infrastrukturen skal se alt, mens folk flest får et grovere kart per region.",
+  },
+  {
+    icon: <ShieldCheck className="h-5 w-5" />,
+    title: "Unngå falske alarmer",
+    body: "Et rødt varsel som ikke stemmer, kan skape uro. Derfor må flere målepunkter i samme område være enige før det blir rødt, og det må være stabilt en stund før det blir grønt igjen. Alt blir logget.",
+  },
+  {
+    icon: <Scale className="h-5 w-5" />,
+    title: "Sivilt og åpent",
+    body: "Løsningen bygger på sivil teknologi og skal eies av sivile etater. Målet er å beskytte folk og holde samfunnet i gang.",
+  },
+];
 
 export default function Ethics() {
   return (
-    <div className=" shadow-sm p-6">
-      <p className="text-slate-700 mb-3">
-        Bruken av kunstig intelligens i beredskapsplanlegging åpner store
-        muligheter, men krever nøye etiske avveiinger. For å etablere et
-        triage-system må det behandles sensitive personopplysninger som helse-
-        og demografidata. Dette gir utfordringer knyttet til personvern,
-        datasikkerhet og tillit.
-      </p>
-      <p className="text-slate-700 mb-3">
-        All databehandling må følge strenge rammer for innhenting, lagring og
-        tilgang, og kun det nødvendige skal samles inn. Samtidig må systemet
-        utformes rettferdig, slik at ingen grupper systematisk nedprioriteres.
-        Åpenhet og tydelig kommunikasjon fra myndighetene er avgjørende for å
-        skape tillit.
-      </p>
-      <p className="text-slate-700 mb-3">
-        For å ivareta sikkerheten i kommunikasjonen mellom befolkningen og nødetatene,
-         vil frivillige i HUB’ene motta krypterte nødsignaler i form av en enkel kode. 
-         Denne koden kan raskt og sikkert dekrypteres hos nødetatene ved hjelp
-          av papirløsninger, uten behov for avansert teknologi. På denne måten sikres 
-          både robusthet og personvern, samtidig som nødsignalene forblir tilgjengelige 
-          og forståelige i en krisesituasjon.
-      </p>
-      <p className="text-slate-700">
-        Slik kan vi utnytte teknologiens styrker uten å gå på bekostning av
-        personvern, rettferdighet og menneskeverd.
-      </p>
+    <div className="grid gap-6 md:grid-cols-2">
+      {PRINCIPLES.map((p) => (
+        <div key={p.title} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="h-fit rounded-lg bg-blue-50 p-2 text-blue-600">{p.icon}</div>
+          <div>
+            <h3 className="font-semibold text-slate-900">{p.title}</h3>
+            <p className="mt-1 leading-relaxed text-slate-600">{p.body}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
