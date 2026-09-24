@@ -9,15 +9,14 @@ const CARDS = [
     icon: TriangleAlert,
     question: "Hva har skjedd?",
     answer:
-      "Et kvikkleireskred går i boligfeltet Elvelia i Trøndelag en vinternatt. Det er mørkt, det sludder, og strømmen er borte. Ingen vet hvor stort skredet er, eller om mer vil rase.",
+      "Et kvikkleireskred går i et boligfelt i Trøndelag en vinternatt. Ingen vet hvor stort det er, eller om mer vil rase.",
     href: "#krisen",
     link: "Til krisen",
   },
   {
     icon: Cable,
     question: "Hvilken sivil teknologi?",
-    answer:
-      "Fibernettet som når ni av ti norske husstander, operatørenes verktøy for å finne kabelbrudd, og lytteteknologi som oljeindustrien har brukt i årevis.",
+    answer: "Fibernettet som allerede ligger i gatene, og verktøy for å finne brudd og lytte med fiber.",
     href: "#teknologien",
     link: "Til teknologien",
   },
@@ -25,15 +24,14 @@ const CARDS = [
     icon: Lightbulb,
     question: "Hvordan brukes den på en ny måte?",
     answer:
-      "Bruddene i fiberen tegner omrisset av skredet på minutter. De hele fibrene rundt kanten lytter etter ny bevegelse og varsler mannskapene. Målingene viser når folk trygt kan flytte hjem.",
+      "Bruddene tegner skredet på minutter, fiberen rundt kanten varsler mannskapene, og målingene viser når folk kan flytte hjem.",
     href: "#losningen",
     link: "Til løsningen",
   },
   {
     icon: Handshake,
     question: "Hvem må samarbeide?",
-    answer:
-      "Fiberoperatørene og Nkom, NVE, politiet, brann og redning, kommunen og Hovedredningssentralen, pluss en ny vaktordning vi kaller Fiberlytterne.",
+    answer: "Fiberoperatørene, NVE, nødetatene og kommunen, pluss en ny vaktordning vi kaller Fiberlytterne.",
     href: "#samarbeid",
     link: "Til samarbeidet",
   },
@@ -48,7 +46,7 @@ export default function CaseSummary() {
         <SectionHeading
           kicker="Casen"
           title="Casen på 30 sekunder"
-          lead="Vi svarer på oppgavens fire spørsmål med én idé: fibernettet som allerede ligger der folk bor, får en ny og avgjørende jobb når et kvikkleireskred går."
+          lead="Én idé: fibernettet som allerede ligger der folk bor, får en ny jobb når et kvikkleireskred går."
         />
 
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">

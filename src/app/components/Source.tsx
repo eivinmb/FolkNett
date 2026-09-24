@@ -32,28 +32,12 @@ const SOURCES = [
     url: "https://www.norsar.no/om-oss/2022/fiberteknologi-gjor-veiene-tryggere_3/",
   },
   {
-    title: "NORSAR: Fiberoptisk sensorteknologi",
-    url: "https://www.norsar.no/tjenester/fiberoptisk-sensorteknologi/",
-  },
-  {
     title: "Digi.no (2026): Bane NOR vil varsle skred med fiberkabler",
     url: "https://www.digi.no/artikler/bane-nor-vil-varsle-skred-med-fiberkabler/574540",
   },
   {
     title: "Nature Communications (2024): Previously hidden landslide processes revealed using distributed acoustic sensing",
     url: "https://www.nature.com/articles/s41467-024-50604-6",
-  },
-  {
-    title: "Landrø mfl. (2022): Sensing whales, storms, ships and earthquakes using an Arctic fibre optic cable. Scientific Reports",
-    url: "https://www.nature.com/articles/s41598-022-23606-x",
-  },
-  {
-    title: "Johnsen og Øverby (2024): Fiberoptikk. Store norske leksikon",
-    url: "https://snl.no/fiberoptikk",
-  },
-  {
-    title: "NRK (2026): Skogbrannen ved Sukkertoppen i Ålesund",
-    url: "https://www.nrk.no/mr/brannvesenet-melder-om-kraftig-royksutvikling-i-alesund-_-usikker-om-det-er-spreiingsfare-1.17813274",
   },
 ];
 

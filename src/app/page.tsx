@@ -12,7 +12,6 @@ import SectionHeading from "./components/SectionHeading";
 import Cooperation from "./components/Cooperation";
 import Impact from "./components/Impact";
 import Feasibility from "./components/Feasibility";
-import Scale from "./components/Scale";
 import AboutUs from "./components/AboutUs";
 import Sources from "./components/Source";
 
@@ -97,7 +96,7 @@ export default function Page() {
               dark
               kicker="Prototype"
               title="Innsatsleders kart"
-              lead="Slik kan det se ut på nettbrettet til innsatsleder. Kartet spiller av natten og ukene etter skredet. Bla gjerne selv med knappene. Elvelia er oppdiktet, men hendelsene bygger på lærdommene fra Gjerdrum."
+              lead="Slik kan nettbrettet til innsatsleder se ut. Kartet spiller av natten og ukene etter skredet, og du kan bla selv med knappene."
             />
             <div className="mt-10">
               <CommandMap />
@@ -108,14 +107,13 @@ export default function Page() {
         <Cooperation />
         <Impact />
         <Feasibility />
-        <Scale />
 
         <section id="team" className="bg-slate-50 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <SectionHeading
               kicker="Teamet"
               title="Dream Bernoulli"
-              lead="Fem studenter ved NTNU med ulik faglig bakgrunn: marin teknikk, marin kybernetikk, maskin, industriell økonomi og organisasjon."
+              lead="Fem studenter ved NTNU."
             />
             <AboutUs />
           </div>
@@ -128,10 +126,9 @@ export default function Page() {
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-700">
               <p className="font-semibold text-slate-900">Bruk av KI</p>
               <p className="mt-2">
-                Vi har brukt KI (Claude fra Anthropic) til research, sparring, renskriving og koding av denne siden.
-                Vrien om å bruke fiberen i selve redningsaksjonen kom fram i sparring med KI, etter at vi hadde valgt
-                fiber som teknologi og skred som case. Vurderingene og valgene er våre. Hele loggen ligger i
-                KI_LOGG.md i prosjektet.
+                Vi har brukt KI (Claude) til research, sparring, renskriving og koding. Vrien om å bruke fiberen i
+                selve redningsaksjonen kom fram i sparring med KI, etter at vi hadde valgt fiber og skred. Valgene er
+                våre. Hele loggen ligger i KI_LOGG.md.
               </p>
             </div>
           </div>

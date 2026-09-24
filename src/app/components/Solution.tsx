@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Ear, House, Map as MapIcon, ShieldCheck, Wrench } from "lucide-react";
+import { Ear, House, Map as MapIcon, ShieldCheck } from "lucide-react";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
@@ -11,37 +11,29 @@ const PHASES = [
     when: "Før krisen",
     title: "Forberedt",
     color: "bg-slate-800 text-slate-100",
-    text: "Staten og fiberoperatørene inngår en beredskapsavtale om å låne ledige fibre og dele bruddmålinger i en krise. Et vaktteam vi kaller Fiberlytterne har lytteinstrumenter klare i hver region. NVEs kart over kvikkleire legges over fiberkartet, så vi vet på forhånd hvilke boligfelt vi kan lytte i, og fra hvilken node.",
+    text: "Operatørene har avtalt å låne ut ledige fibre. Fiberlytterne har instrumenter klare, og vi vet på forhånd hvilke boligfelt på kvikkleire som har fiber.",
   },
   {
     icon: MapIcon,
     when: "Minutt 0 til 15",
     title: "Bruddene tegner skredet",
     color: "bg-rose-600 text-white",
-    text: "Når grunnen raser ut, ryker kablene i gatene. Operatøren måler fra noden hvor langt ute hvert brudd er, automatisk eller med en tekniker på vakt. Punktene legges på kabelkartet og tegner omrisset av skredet, og tidspunktene viser hvilken vei det vokser. Kartet går til innsatsleder, AMK og helikopteret.",
+    text: "Kablene ryker der grunnen raser ut. Bruddene legges på kartet og gir omrisset, og tidspunktene viser hvilken vei skredet vokser.",
   },
   {
     icon: Ear,
     when: "Time 1 til døgn 3",
     title: "Fiberen lytter for mannskapene",
     color: "bg-emerald-600 text-white",
-    text: "Fiberlytterne kobler et lytteinstrument på de hele fibrene rundt skredet, fra noden og trygt unna faresonen. Programvaren skiller helikopter og aggregater fra bevegelse i grunnen. Begynner bakken å røre seg, går varselet rett ut på sambandet. Rolige målinger over tid gir innsatsleder et bedre grunnlag for å starte søket fra bakken.",
+    text: "De hele fibrene rundt kanten lytter fra noden, trygt unna faresonen. Beveger bakken seg, går varselet rett ut på sambandet.",
   },
   {
     icon: House,
     when: "Uke 1 og utover",
     title: "Fiberen vokter hjemmene",
     color: "bg-cyan-600 text-white",
-    text: "Lyttingen fortsetter døgnet rundt mens skråningen sikres. NVE og geoteknikerne får målinger fra hele kanten, og kommunen kan friskmelde sonene etter tur. Folk kommer hjem tidligere, og med bedre grunn til å føle seg trygge.",
+    text: "Lyttingen fortsetter mens skråningen sikres. Rolige målinger gir grunnlag for å friskmelde sonene og la folk flytte hjem.",
   },
-];
-
-const ADAPTATIONS = [
-  "En beredskapsavtale mellom staten og operatørene om lån av fiber og deling av bruddmålinger og kabelkart.",
-  "Programvare som legger brudd og lytting på ett kart, og som skiller støy fra bevegelse i grunnen.",
-  "Varsler som går rett ut på Nødnett til innsatsleder og mannskaper.",
-  "Et vaktteam med instrumenter i hver region, som rykker ut slik redningslagene gjør.",
-  "Øvelser, så lytting og bruddkart blir en fast del av planverket for kvikkleireskred.",
 ];
 
 export default function Solution() {
@@ -53,7 +45,7 @@ export default function Solution() {
         <SectionHeading
           kicker="Spørsmål 3 av 4"
           title="Hvordan brukes teknologien på en ny måte?"
-          lead="Fiberen får tre nye jobber, og alle starter i det øyeblikket skredet går. De virker fordi noe er forberedt på forhånd."
+          lead="Fiberen får tre nye jobber som starter i det øyeblikket skredet går."
         />
 
         <div className="relative mt-12">
@@ -78,23 +70,6 @@ export default function Solution() {
             ))}
           </div>
         </div>
-
-        <Reveal delay={0.1}>
-          <div className="mt-14 rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
-            <div className="flex items-center gap-2 text-lg font-semibold text-slate-900">
-              <Wrench className="h-5 w-5 text-cyan-700" />
-              Dette må tilpasses
-            </div>
-            <ul className="mt-4 grid gap-3 md:grid-cols-2">
-              {ADAPTATIONS.map((line) => (
-                <li key={line} className="flex gap-2 text-slate-600">
-                  <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-cyan-600" />
-                  {line}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

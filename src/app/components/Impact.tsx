@@ -4,29 +4,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
-const COMPARISON = [
-  {
-    topic: "Første oversikt",
-    before: "Over en time. Første helhetsbilde kom fra et politihelikopter med nattbriller klokka 05.09.",
-    after: "Minutter. Bruddene tegner et første omriss før helikopteret er i lufta.",
-  },
-  {
-    topic: "Varsel til mannskapene",
-    before: "Mannskapene så etter sprekker i asfalten og lyttet selv.",
-    after: "Varsel på sambandet når grunnen beveger seg.",
-  },
-  {
-    topic: "Søk fra bakken",
-    before: "Startet etter 48 timer.",
-    after: "Rolige målinger gir et bedre grunnlag for å starte tidligere, med lyttingen som vakt.",
-  },
-  {
-    topic: "Hjem igjen",
-    before: "Området ble erklært trygt i august 2023.",
-    after: "Målinger døgnet rundt gir grunnlag for å friskmelde soner etter tur.",
-  },
-];
-
 const TABLE_HEAD = ["", "Fiber i gata", "Helikopter", "Drone", "Nye sensorer"];
 
 const TABLE_ROWS: { label: string; cells: [string, string, string, string] }[] = [
@@ -53,7 +30,7 @@ export default function Impact() {
         <SectionHeading
           kicker="Effekt"
           title="Hvorfor det utgjør en forskjell"
-          lead="Vi sammenligner med Gjerdrum i 2020. Kolonnen til høyre viser målene våre, ikke løfter, men alle bygger på teknologi som finnes i dag."
+          lead="Det viktigste målet er å gi redningsledelsen et bilde av skredet på minutter i stedet for over en time."
         />
 
         <Reveal className="mt-10">
@@ -99,30 +76,7 @@ export default function Impact() {
           </div>
         </Reveal>
 
-        <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200">
-          <div className="hidden grid-cols-[1fr_1.4fr_1.4fr] bg-slate-100 text-sm font-semibold text-slate-600 md:grid">
-            <div className="p-4" />
-            <div className="p-4">Gjerdrum 2020</div>
-            <div className="p-4 text-cyan-800">Med Bakken som lytter</div>
-          </div>
-          {COMPARISON.map((row, i) => (
-            <Reveal key={row.topic} delay={i * 0.05}>
-              <div className="grid gap-2 border-t border-slate-200 p-4 md:grid-cols-[1fr_1.4fr_1.4fr] md:gap-0 md:p-0">
-                <div className="font-semibold text-slate-900 md:p-4">{row.topic}</div>
-                <div className="text-slate-600 md:p-4">
-                  <span className="font-semibold text-slate-500 md:hidden">Gjerdrum 2020: </span>
-                  {row.before}
-                </div>
-                <div className="text-slate-800 md:bg-cyan-50/60 md:p-4">
-                  <span className="font-semibold text-cyan-800 md:hidden">Med fiber: </span>
-                  {row.after}
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <h3 className="mt-16 text-2xl font-bold text-slate-900 md:text-3xl">
+        <h3 className="mt-12 text-2xl font-bold text-slate-900 md:text-3xl">
           Hvorfor fiber, og ikke bare helikopter og droner?
         </h3>
         <Reveal className="mt-6">

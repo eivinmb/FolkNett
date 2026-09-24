@@ -7,19 +7,19 @@ const PROBLEMS = [
   {
     icon: EyeOff,
     title: "Blinde",
-    text: "I mørke og sludd visste ingen hvor skredkanten gikk. På Gjerdrum kom det første helhetsbildet fra et politihelikopter med nattbriller klokka 05.09, over en time etter skredet. Anslagene lå mellom 30 og 50 hus.",
+    text: "Ingen visste hvor skredkanten gikk. Det første helhetsbildet kom fra et helikopter med nattbriller 73 minutter etter skredet, og anslagene sprikte mellom 30 og 50 hus.",
   },
   {
     icon: EarOff,
     title: "Døve",
-    text: "Mannskapene måtte selv følge med på grunnen mens mindre ras gikk fra kanten og det var fare for et større skred.",
+    text: "Mannskapene måtte selv følge med på grunnen mens mindre ras gikk fra kanten.",
     quote: "vi så etter sprekker i bakken og lyttet",
     cite: "Mannskap fra brannvesenet, sitert i evalueringen",
   },
   {
     icon: Lock,
     title: "Låst ute",
-    text: "Det gikk 48 timer før søket i skredgropa startet fra bakken. De fleste evakuerte kom hjem etter en måned, men området ble først erklært trygt i august 2023.",
+    text: "Søket i skredgropa startet fra bakken først etter 48 timer, og området ble ikke erklært trygt før i august 2023.",
   },
 ];
 
@@ -29,8 +29,7 @@ export default function Problem() {
       <div className="mx-auto max-w-6xl px-4">
         <h3 className="text-2xl font-bold text-slate-900 md:text-3xl">Problemet vi løser</h3>
         <p className="mt-3 max-w-3xl text-lg text-slate-600">
-          Evalueringen av Gjerdrum viser at mange av de vanskeligste timene kom etter at skredet hadde gått. Tre
-          ting manglet.
+          Evalueringen av Gjerdrum viser at mange av de vanskeligste timene kom etter at skredet hadde gått.
         </p>
 
         <div className="mt-8 grid gap-5 md:grid-cols-3">
@@ -65,9 +64,7 @@ export default function Problem() {
             </div>
           </div>
         </Reveal>
-        <p className="mt-4 text-sm text-slate-500">
-          Kilde: Hovedredningssentralen (2021), evaluering av redningsaksjonen på Gjerdrum. Se kildelisten nederst.
-        </p>
+        <p className="mt-4 text-sm text-slate-500">Kilde: Hovedredningssentralens evaluering (2021).</p>
       </div>
     </section>
   );

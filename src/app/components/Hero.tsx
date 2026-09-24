@@ -1,14 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, Ear, House, Map as MapIcon } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import HeroScene from "./HeroScene";
-
-const POINTS = [
-  { icon: MapIcon, text: "Bruddene i fiberen tegner skredet på minutter" },
-  { icon: Ear, text: "Fiberen rundt kanten lytter og varsler mannskapene" },
-  { icon: House, text: "Målingene viser når folk trygt kan flytte hjem" },
-];
 
 export default function Hero() {
   const reduce = useReducedMotion();
@@ -47,18 +41,7 @@ export default function Hero() {
           redningsmannskapene mangler.
         </motion.p>
 
-        <motion.ul {...rise(0.3)} className="mt-8 grid max-w-xl gap-3">
-          {POINTS.map(({ icon: Icon, text }) => (
-            <li key={text} className="flex items-center gap-3 text-slate-200">
-              <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-cyan-400/15 text-cyan-300">
-                <Icon className="h-5 w-5" />
-              </span>
-              {text}
-            </li>
-          ))}
-        </motion.ul>
-
-        <motion.div {...rise(0.4)} className="mt-10 flex flex-wrap gap-3">
+        <motion.div {...rise(0.3)} className="mt-10 flex flex-wrap gap-3">
           <a
             href="#casen"
             className="rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
