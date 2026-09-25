@@ -5,15 +5,16 @@ import BreakFigure from "./BreakFigure";
 import ListeningFigure from "./ListeningFigure";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
+import WavelengthFigure from "./WavelengthFigure";
 
 const STATS = [
   { value: "91 %", text: "av norske husstander har fiberdekning, så kablene ligger der folk bor." },
   { value: "Tusenvis", text: "av målepunkter langs én kabel når fiberen lytter." },
-  { value: "0", text: "nye kabler. Vi låner ledige fibre som står som reserve." },
+  { value: "0", text: "nye kabler. Vi bruker fibrene som allerede ligger i gata." },
 ];
 
 const LISTEN_STEPS = [
-  "Instrumentet i noden sender korte lyspulser inn i en ledig fiber.",
+  "Instrumentet i noden sender korte lyspulser inn i fiberen.",
   "Litt av lyset spres tilbake fra hver meter av glasset.",
   "Når bakken beveger seg, strekkes fiberen litt akkurat der.",
   "Instrumentet ser hvor det skjer og hvor mye.",
@@ -95,6 +96,20 @@ export default function Technology() {
               </ol>
             </Reveal>
           </div>
+        </div>
+
+        <div className="mt-16 grid gap-6 lg:grid-cols-[1fr_1.6fr] lg:items-center">
+          <Reveal>
+            <h3 className="text-2xl font-bold text-slate-900">Hvilke fibre bruker vi?</h3>
+            <p className="mt-4 text-slate-600">
+              I evakueringssonen er husene tomme, så operatøren kan låne fibrene som går dit. Der fiberen også frakter
+              viktig trafikk, for eksempel til mobilmaster, sender vi målingen på en egen bølgelengde. Det er slik
+              operatørene overvåker nettet i dag.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <WavelengthFigure />
+          </Reveal>
         </div>
 
         <Reveal className="mt-16">

@@ -11,7 +11,7 @@ const PHASES = [
     when: "Før krisen",
     title: "Forberedt",
     color: "bg-slate-800 text-slate-100",
-    text: "Operatørene har avtalt å låne ut ledige fibre. Fiberlytterne har instrumenter klare, og vi vet på forhånd hvilke boligfelt på kvikkleire som har fiber.",
+    text: "Operatørene har avtalt å låne ut fibre i en krise. Fiberlytterne har instrumenter klare, og vi vet på forhånd hvilke boligfelt på kvikkleire som har fiber.",
   },
   {
     icon: MapIcon,

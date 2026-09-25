@@ -11,7 +11,7 @@ const ACTORS: Actor[] = [
   {
     icon: Cable,
     name: "Fiberoperatørene og Nkom",
-    role: "Låner ut ledige fibre, måler bruddene og deler kabelkart. Nkom gjør det til et beredskapskrav.",
+    role: "Låner ut fibre i krisen, måler bruddene og deler kabelkart. Nkom gjør det til et beredskapskrav.",
   },
   {
     icon: Ear,

@@ -126,9 +126,9 @@ export default function Page() {
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-700">
               <p className="font-semibold text-slate-900">Bruk av KI</p>
               <p className="mt-2">
-                Vi har brukt KI (Claude) til research, sparring, renskriving og koding. Vrien om å bruke fiberen i
-                selve redningsaksjonen kom fram i sparring med KI, etter at vi hadde valgt fiber og skred. Valgene er
-                våre. Hele loggen ligger i KI_LOGG.md.
+                Fiber som teknologi er vår idé fra i fjor, og det er vi som har valgt skred som case og vurdert og
+                videreutviklet løsningen. KI (Claude) er brukt til research, sparring om case og løsning, renskriving
+                og koding. Hele loggen ligger i KI_LOGG.md.
               </p>
             </div>
           </div>
