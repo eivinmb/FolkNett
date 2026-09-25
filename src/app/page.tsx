@@ -113,7 +113,7 @@ export default function Page() {
             <SectionHeading
               kicker="Teamet"
               title="Dream Bernoulli"
-              lead="Fem studenter ved NTNU."
+              lead="Fem studenter fra NTNU i Trondheim og fra Bergen."
             />
             <AboutUs />
           </div>
