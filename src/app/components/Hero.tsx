@@ -4,6 +4,9 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import HeroScene from "./HeroScene";
 
+/** Adressen til den publiserte nettsiden. Byttes til bakken-som-lytter.no når domenet er klart. */
+const SITE_URL = "http://138.68.129.164:8101/";
+
 export default function Hero() {
   const reduce = useReducedMotion();
   const rise = (delay: number) =>
@@ -41,7 +44,15 @@ export default function Hero() {
           redningsmannskapene mangler.
         </motion.p>
 
-        <motion.div {...rise(0.3)} className="reveal mt-10 flex flex-wrap gap-3">
+        {/* Vises bare i PDF-en, der knappene ikke virker */}
+        <p className="mt-10 hidden max-w-xl text-lg text-slate-200 print:block">
+          Se den interaktive versjonen med animasjoner og prototype:{" "}
+          <a href={SITE_URL} className="font-semibold text-cyan-300 underline underline-offset-4">
+            {SITE_URL.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+          </a>
+        </p>
+
+        <motion.div {...rise(0.3)} className="reveal mt-10 flex flex-wrap gap-3 print:hidden">
           <a
             href="#casen"
             className="rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"

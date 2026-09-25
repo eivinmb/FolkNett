@@ -140,7 +140,7 @@ export default function Page() {
                 Vi valgte fiberoptikk som teknologi fordi den allerede ligger utbygd over hele landet, og vi så en
                 mulighet til å gi den en ny funksjon i en krise ved å bruke eksisterende kabler som sensorer i stedet
                 for bare til å overføre data. KI (Claude) er brukt til research, sparring om case og løsning,
-                renskriving og koding. Hele loggen ligger i KI_LOGG.md.
+                renskriving og koding.
               </p>
             </div>
           </div>
