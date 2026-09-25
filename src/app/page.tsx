@@ -126,9 +126,10 @@ export default function Page() {
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-700">
               <p className="font-semibold text-slate-900">Bruk av KI</p>
               <p className="mt-2">
-                Fiber som teknologi er vår idé fra i fjor, og det er vi som har valgt skred som case og vurdert og
-                videreutviklet løsningen. KI (Claude) er brukt til research, sparring om case og løsning, renskriving
-                og koding. Hele loggen ligger i KI_LOGG.md.
+                Vi valgte fiberoptikk som teknologi fordi den allerede ligger utbygd over hele landet, og vi så en
+                mulighet til å gi den en ny funksjon i en krise ved å bruke eksisterende kabler som sensorer i stedet
+                for bare til å overføre data. KI (Claude) er brukt til research, sparring om case og løsning,
+                renskriving og koding. Hele loggen ligger i KI_LOGG.md.
               </p>
             </div>
           </div>
