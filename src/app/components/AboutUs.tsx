@@ -5,40 +5,40 @@ import React from "react";
 type TeamMember = {
   name: string;
   year: string;
-  img: string;
+  img?: string;
   study: string;
 };
 
 const team: TeamMember[] = [
-  { 
+  {
     name: "Eivin Burmester",
-    year: "4. Klasse",
-    img: "/team/eivin.png",
-    study: "Marin Kybernetikk" 
-  },
-  { 
-    name: "Eirik Hekkli",
-    year: "3. Klasse",
-    img: "/team/eirik.png",
-    study: "Marin Teknikk" 
-  },
-  { 
-    name: "Camilla Gloppen",
     year: "5. Klasse",
-    img: "/team/camilla.png",
-    study: "Organisasjon, Digitalisering, Administrasjon og Arbeid" 
+    img: "/team/eivin.jpg",
+    study: "Marin Kybernetikk, Trondheim"
   },
-  { 
+  {
+    name: "Eirik Hekkli",
+    year: "4. Klasse",
+    img: "/team/eirik.jpg",
+    study: "Marin Teknikk, Trondheim"
+  },
+  {
+    name: "Isak Halse Kjerstad",
+    year: "1. Klasse",
+    img: "/team/isak.jpg",
+    study: "Fiskehelse, Bergen"
+  },
+  {
     name: "Henrik Sehm-Hansen",
-    year: "3. Klasse",
-    img: "/team/henrik.png",
-    study: "Industriell Økonomi og Teknologiledelse" 
+    year: "4. Klasse",
+    img: "/team/henrik.jpg",
+    study: "Industriell Økonomi og Teknologiledelse, Trondheim"
   },
-  { 
+  {
     name: "Syver Strand",
-    year: "2. Klasse",
-    img: "/team/syver.png",
-    study: "Maskiningeniør" 
+    year: "3. Klasse",
+    img: "/team/syver.jpg",
+    study: "Maskiningeniør, Trondheim"
   },
 ];
 
@@ -49,11 +49,18 @@ type CardProps = {
 function Card({ m }: CardProps) {
   return (
     <div className="about-card relative !static bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center w-56 shrink-0">
-      <img
-        src={m.img}
-        alt={m.name}
-        className="!w-32 !h-32 !rounded-full !object-cover !mb-4 !block"
-      />
+      {m.img ? (
+        <img
+          src={m.img}
+          alt={m.name}
+          className="!w-32 !h-32 !rounded-full !object-cover !mb-4 !block"
+        />
+      ) : (
+        <div className="mb-4 flex h-32 w-32 items-center justify-center rounded-full bg-slate-900 text-3xl font-bold text-cyan-300">
+          {m.name[0]}
+          {m.name.split(" ").pop()?.[0]}
+        </div>
+      )}
       <h2 className="text-lg font-semibold">{m.name}</h2>
       <p className="text-sm text-slate-500">{m.year}</p>
       <p className="mt-2 text-sm">{m.study}</p>
