@@ -25,6 +25,7 @@ const team: TeamMember[] = [
   {
     name: "Isak Halse Kjerstad",
     year: "1. Klasse",
+    img: "/team/isak.jpg",
     study: "Fiskehelse, Bergen"
   },
   {
