@@ -14,13 +14,13 @@ const team: TeamMember[] = [
     name: "Eivin Burmester",
     year: "5. Klasse",
     img: "/team/eivin.png",
-    study: "Marin Kybernetikk"
+    study: "Marin Kybernetikk, Trondheim"
   },
   {
     name: "Eirik Hekkli",
     year: "4. Klasse",
     img: "/team/eirik.png",
-    study: "Marin Teknikk"
+    study: "Marin Teknikk, Trondheim"
   },
   {
     name: "Isak Halse Kjerstad",
@@ -31,13 +31,13 @@ const team: TeamMember[] = [
     name: "Henrik Sehm-Hansen",
     year: "4. Klasse",
     img: "/team/henrik.png",
-    study: "Industriell Økonomi og Teknologiledelse"
+    study: "Industriell Økonomi og Teknologiledelse, Trondheim"
   },
   {
     name: "Syver Strand",
     year: "3. Klasse",
     img: "/team/syver.png",
-    study: "Maskiningeniør"
+    study: "Maskiningeniør, Trondheim"
   },
 ];
 
