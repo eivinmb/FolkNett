@@ -52,7 +52,7 @@ export default function Scenario() {
             {TIMELINE.map((item, i) => (
               <motion.li
                 key={item.time}
-                className="relative pb-8 last:pb-0"
+                className="reveal relative pb-8 last:pb-0"
                 initial={reduce ? false : { opacity: 0, x: -16 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-40px" }}

@@ -46,7 +46,7 @@ export default function Impact() {
                 </div>
                 <div className="mt-1 h-4 rounded-full bg-slate-800">
                   <motion.div
-                    className="h-4 rounded-full bg-rose-500"
+                    className="print-full h-4 rounded-full bg-rose-500"
                     initial={{ width: reduce ? "100%" : "0%" }}
                     whileInView={{ width: "100%" }}
                     viewport={{ once: true }}
@@ -61,7 +61,7 @@ export default function Impact() {
                 </div>
                 <div className="mt-1 h-4 rounded-full bg-slate-800">
                   <motion.div
-                    className="h-4 rounded-full bg-cyan-400"
+                    className="print-goal h-4 rounded-full bg-cyan-400"
                     initial={{ width: reduce ? "20%" : "0%" }}
                     whileInView={{ width: "20%" }}
                     viewport={{ once: true }}

@@ -51,7 +51,7 @@ function useSectionSpy(ids: string[]) {
 
 function StickyNav({ active }: { active: string }) {
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/85 backdrop-blur">
+    <nav className="no-print fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/85 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-4 px-4">
         <a href="#top" className="hidden flex-none font-semibold text-white sm:block">
           Bakken som lytter
@@ -76,8 +76,19 @@ function StickyNav({ active }: { active: string }) {
   );
 }
 
+/** Åpner alle spørsmålene før utskrift, så svarene kommer med i PDF-en. */
+function useOpenDetailsOnPrint() {
+  useEffect(() => {
+    const openAll = () => document.querySelectorAll("details").forEach((d) => (d.open = true));
+    if (window.location.search.includes("utskrift")) openAll();
+    window.addEventListener("beforeprint", openAll);
+    return () => window.removeEventListener("beforeprint", openAll);
+  }, []);
+}
+
 export default function Page() {
   const active = useSectionSpy(NAV_IDS);
+  useOpenDetailsOnPrint();
 
   return (
     <div className="min-h-screen bg-white text-slate-900">

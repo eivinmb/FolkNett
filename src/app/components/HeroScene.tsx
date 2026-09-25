@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { BREAKS, ESTIMATE, HOUSES, SLIDE_PATHS, polyPath } from "./elvelia";
+import { usePrintMode } from "./usePrintMode";
 import {
   BreakMarker,
   Fibers,
@@ -28,7 +29,8 @@ const FADES: Record<string, Fade> = {
 };
 
 export default function HeroScene() {
-  const reduce = useReducedMotion();
+  const printMode = usePrintMode();
+  const reduce = useReducedMotion() || printMode;
 
   const fade = (name: keyof typeof FADES) => {
     const { values, times } = FADES[name];

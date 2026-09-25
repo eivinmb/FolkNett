@@ -51,7 +51,7 @@ export default function Solution() {
         <div className="relative mt-12">
           <div className="absolute left-0 right-0 top-7 hidden h-1 rounded-full bg-slate-200 lg:block" />
           <motion.div
-            className="absolute left-0 top-7 hidden h-1 rounded-full bg-gradient-to-r from-slate-700 via-rose-500 to-cyan-500 lg:block"
+            className="print-full absolute left-0 top-7 hidden h-1 rounded-full bg-gradient-to-r from-slate-700 via-rose-500 to-cyan-500 lg:block"
             initial={{ width: reduce ? "100%" : "0%" }}
             whileInView={{ width: "100%" }}
             viewport={{ once: true, margin: "-80px" }}

@@ -31,6 +31,7 @@ import {
   type DotStatus,
   type HouseState,
 } from "./ElveliaParts";
+import { usePrintMode } from "./usePrintMode";
 
 const HOUSES_IN_ESTIMATE = HOUSES.filter((h) => pointInPolygon([h.x, h.y], ESTIMATE)).length;
 
@@ -159,11 +160,18 @@ const LEGEND = [
 ];
 
 export default function CommandMap() {
-  const reduce = useReducedMotion();
+  const reduceMotion = useReducedMotion();
   const [step, setStep] = useState(0);
   const [playing, setPlaying] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const inView = useInView(containerRef, { once: true, margin: "-25% 0px" });
+
+  // I utskriftsversjonen vises steget der fiberen lytter rundt hele skredet, uten animasjon.
+  const printMode = usePrintMode();
+  const reduce = reduceMotion || printMode;
+  useEffect(() => {
+    if (printMode) setStep(4);
+  }, [printMode]);
 
   useEffect(() => {
     if (inView && !reduce) setPlaying(true);
@@ -314,7 +322,7 @@ export default function CommandMap() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4, delay: reduce ? 0 : b.ring ? 0.6 : 0.2 }}
+                  transition={{ duration: reduce ? 0 : 0.4, delay: reduce ? 0 : b.ring ? 0.6 : 0.2 }}
                 >
                   <BreakMarker at={b.at} pulse={!reduce && step <= 3} />
                   <BreakLabel b={b} />
@@ -418,7 +426,7 @@ export default function CommandMap() {
       </div>
 
       {/* Styring */}
-      <div className="mt-5 flex flex-col gap-4 lg:flex-row lg:items-center">
+      <div className="no-print mt-5 flex flex-col gap-4 lg:flex-row lg:items-center">
         <div className="flex items-center gap-2">
           <button
             type="button"

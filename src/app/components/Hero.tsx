@@ -29,19 +29,19 @@ export default function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-16">
         <motion.p
           {...rise(0)}
-          className="inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-cyan-200"
+          className="reveal inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-cyan-200"
         >
           Your Extreme 2026 · Oppgave 1: Når vi må bruke det vi har
         </motion.p>
-        <motion.h1 {...rise(0.1)} className="mt-6 text-5xl font-extrabold tracking-tight sm:text-7xl">
+        <motion.h1 {...rise(0.1)} className="reveal mt-6 text-5xl font-extrabold tracking-tight sm:text-7xl">
           Bakken som lytter
         </motion.h1>
-        <motion.p {...rise(0.2)} className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300 sm:text-xl">
+        <motion.p {...rise(0.2)} className="reveal mt-6 max-w-xl text-lg leading-relaxed text-slate-300 sm:text-xl">
           Når et kvikkleireskred går om natten, gjør vi fiberkablene under gatene om til kartet og ørene
           redningsmannskapene mangler.
         </motion.p>
 
-        <motion.div {...rise(0.3)} className="mt-10 flex flex-wrap gap-3">
+        <motion.div {...rise(0.3)} className="reveal mt-10 flex flex-wrap gap-3">
           <a
             href="#casen"
             className="rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
@@ -64,7 +64,7 @@ export default function Hero() {
       <a
         href="#casen"
         aria-label="Gå til casen"
-        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-slate-400 transition hover:text-white"
+        className="no-print absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-slate-400 transition hover:text-white"
       >
         <ArrowDown className={`h-6 w-6 ${reduce ? "" : "animate-bounce"}`} />
       </a>
