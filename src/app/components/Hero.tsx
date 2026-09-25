@@ -4,8 +4,9 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import HeroScene from "./HeroScene";
 
-/** Adressen til den publiserte nettsiden. Byttes til bakken-som-lytter.no når domenet er klart. */
+/** Lenken går til serveren nå. Byttes til domenet når det er klart. */
 const SITE_URL = "http://138.68.129.164:8101/";
+const SITE_NAME = "bakken-som-lytter.no";
 
 export default function Hero() {
   const reduce = useReducedMotion();
@@ -48,7 +49,7 @@ export default function Hero() {
         <p className="mt-10 hidden max-w-xl text-lg text-slate-200 print:block">
           Se den interaktive versjonen med animasjoner og prototype:{" "}
           <a href={SITE_URL} className="font-semibold text-cyan-300 underline underline-offset-4">
-            {SITE_URL.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+            {SITE_NAME}
           </a>
         </p>
 
