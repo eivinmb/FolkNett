@@ -66,7 +66,7 @@ export default function Technology() {
           </Reveal>
         </div>
 
-        <div className="mt-16">
+        <div className="print-break mt-16 print:mt-0 print:pt-16">
           <Reveal>
             <div className="flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">

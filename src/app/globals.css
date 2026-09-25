@@ -221,6 +221,7 @@ section[id] {
   aside {
     break-inside: avoid;
   }
+  .print-break,
   #prototype,
   #samarbeid,
   #effekt,
